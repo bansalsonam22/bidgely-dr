@@ -7,7 +7,7 @@ angular.module('drControllers')
       ceil: 100,
       minLimit: 1,
       maxLimit: 100,
-      onChange: function() {
+      onEnd: function() {
         console.log($scope.slider.value);
       }
     }

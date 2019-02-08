@@ -331,10 +331,15 @@ angular.module('drControllers')
       console.log(inputSeriesData);
       return inputSeriesData;
     };
-
-    $scope.onDateChange = function(event) {
-      console.log(event);
-      console.log("$scope.dateValue ", $scope.dateValue);
+    $scope.options = {
+      autoclose: true,
+      format: 'dd/mm/yyyy'
     }
+
+    $(".date").datepicker().
+    on("change", function(e) {
+      console.log(e.target.value);
+      $scope.dateValue = e.target.value;
+    });
   }
 ]);
