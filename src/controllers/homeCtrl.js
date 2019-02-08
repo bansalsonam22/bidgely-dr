@@ -331,15 +331,33 @@ angular.module('drControllers')
       console.log(inputSeriesData);
       return inputSeriesData;
     };
+
+    $scope.loadData = function loadData() {
+      //http to get data with latest params date and number
+    };
+
     $scope.options = {
       autoclose: true,
       format: 'dd/mm/yyyy'
-    }
+    };
 
     $(".date").datepicker().
     on("change", function(e) {
       console.log(e.target.value);
       $scope.dateValue = e.target.value;
     });
+
+    $scope.slider = {
+      value: 50,
+      options: {
+        floor: 0,
+        ceil: 100,
+        minLimit: 1,
+        maxLimit: 100,
+        onEnd: function() {
+          console.log($scope.slider.value);
+        }
+      }
+    };
   }
 ]);

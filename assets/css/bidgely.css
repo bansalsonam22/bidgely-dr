@@ -7,7 +7,16 @@
 .page-content {
   margin-top: 100px; }
   .page-content .home-page .date {
-    margin-top: 17px; }
+    margin-top: 20px; }
+  .page-content .range-selector {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px; }
+    .page-content .range-selector .btn-primary {
+      margin-top: 20px;
+      min-width: 100px; }
+    .page-content .range-selector .user-input {
+      margin-top: 20px; }
   .page-content .chart-container {
     margin: 50px 0;
     padding: 25px 0;

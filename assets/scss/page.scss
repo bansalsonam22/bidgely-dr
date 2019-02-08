@@ -2,7 +2,19 @@
   margin-top: 100px;
   .home-page {
     .date {
-      margin-top: 17px;
+      margin-top: 20px;
+    }
+  }
+  .range-selector{
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    .btn-primary {
+      margin-top: 20px;
+      min-width: 100px;
+    }
+    .user-input {
+      margin-top: 20px;
     }
   }
   .chart-container {
