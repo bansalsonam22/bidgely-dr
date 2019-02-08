@@ -1,16 +1,20 @@
 <div class="home-page">
-  <h3>Welcome</h3>
-  <ng-include src="'src/templates/partials/slider.html'"></ng-include>
-  <highchart id="chart1" config="chartConfig1"></highchart>
-  <highchart id="chart1" config="chartConfig2"></highchart>
-  <highchart id="chart1" config="chartConfig3"></highchart>
-  <!-- <div class="row">
-    <div class="col-md-6">
-      <highchart id="chart1" config="chartConfig1"></highchart>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <ng-include src="'src/templates/partials/slider.html'" ng-controller="sliderCtrl"></ng-include>
+      </div>
+      <!-- <div class="col-sm-4">
+        <div class="input-group date">
+          <input id="datepicker" type="text" data-ng-datepicker data-ng-options="datepickerOptions" data-ng-model="date">
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-th"></span>
+          </div>
+        </div>
+      </div> -->
     </div>
-    <div class="col-md-6">
-      <highchart id="chart1" config="chartConfig3"></highchart>
-    </div>
-  </div> -->
-
+    <highchart id="chart1" config="chartConfig1"></highchart>
+    <highchart id="chart1" config="chartConfig2"></highchart>
+    <highchart id="chart1" config="chartConfig3"></highchart>
+  </div>
 </div>

@@ -1,5 +1,8 @@
 var bidgelyDRApp = angular.module('bidgelyDRApp', [
   'ui.router',
   'drControllers',
-  'highcharts-ng'
+  'highcharts-ng',
+  'rzModule',
+  'drControllers',
+  'ng-bootstrap-datepicker'
 ]);
