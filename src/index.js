@@ -1,4 +1,5 @@
 var bidgelyDRApp = angular.module('bidgelyDRApp', [
   'ui.router',
-  'drControllers'
+  'drControllers',
+  'highcharts-ng'
 ]);
