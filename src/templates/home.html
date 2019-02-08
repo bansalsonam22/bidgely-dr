@@ -4,14 +4,14 @@
       <div class="col-sm-6">
         <ng-include src="'src/templates/partials/slider.html'" ng-controller="sliderCtrl"></ng-include>
       </div>
-      <!-- <div class="col-sm-4">
-        <div class="input-group date">
-          <input id="datepicker" type="text" data-ng-datepicker data-ng-options="datepickerOptions" data-ng-model="date">
+      <div class="col-sm-3">
+        <div class="input-group date" id="date-picker">
+          <input type="text" class="form-control" ng-model="dateValue" data-provide="datepicker" data-date-autoclose="true" data-date-container="#date-picker" data-date-format="yyyy/mm/dd" ng-change="onDateChange($event)">
           <div class="input-group-addon">
-            <span class="glyphicon glyphicon-th"></span>
+            <span class="glyphicon glyphicon-th"></span> 
           </div>
         </div>
-      </div> -->
+      </div>
     </div>
     <highchart id="chart1" config="chartConfig1"></highchart>
     <highchart id="chart1" config="chartConfig2"></highchart>
