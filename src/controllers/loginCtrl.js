@@ -1,5 +1,5 @@
 angular.module('drControllers')
-.controller('loginCtrl', function($scope, $state, $q) {
+.controller('loginCtrl', function($scope, $state, $q, GetStartTime) {
   $scope.user = null;
   $scope.isError = false;
   $scope.isSuccess = false;
@@ -7,7 +7,10 @@ angular.module('drControllers')
       validateUser();
    },
    validateUser = function () {
-     var deferred = $q.defer();
+     console.log("validateUser");
+     GetStartTime.getStartTime().then(function (data) {
+       console.log("data", data);
+     });
      if ($scope.user.userName === 'admin' && $scope.user.password === 'admin') {
        $scope.messageSuccess = "Success";
        $scope.isError = false;
