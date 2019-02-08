@@ -1,6 +1,5 @@
 angular.module('drControllers')
-.controller('homeCtrl', ['$scope', '$state',
-  function($scope, $state) {
+.controller('homeCtrl', function($scope, $state, $q, DataManager) {
     $scope.dateValue = '';
     var perpareChartData = function perpareChartData() {
       getChartConfigForInput();
@@ -283,57 +282,53 @@ angular.module('drControllers')
       $scope.chartConfig3.loading = false;
     };
 
-    $.getJSON(
-        '../../assets/sample_data/sample.json',
-        function (data) {
-          $scope.loadData = data;
-          perpareChartData();
-          console.log(data);
-
-        }
-    );
-
     var getTimeStamp = function getTimeStamp(dateStr) {
-      console.log(dateStr);
       var myDate = dateStr.split("-");
       return (new Date(dateStr).getTime());
     };
 
     $scope.getAreaRangeChartSeries = function getAreaRangeChartSeries(key1) {
       var inputData = $scope.loadData[key1];
-      console.log($scope.loadData);
       var inputSeriesData = [];
       for(var i = 0; i < inputData["Predicted_confidence_lower"].length; i++) {
         inputSeriesData.push([getTimeStamp(inputData.Timestamp[i]), inputData["Predicted_confidence_lower"][i], inputData["Predicted_confidence_upper"][i]]);
       }
-      console.log(inputSeriesData);
       return inputSeriesData;
     };
 
     $scope.getChartSeries = function getChartSeries(key1, key2) {
       var inputData = $scope.loadData[key1];
-      console.log($scope.loadData);
       var inputSeriesData = [];
       for(var i = 0; i < inputData[key2].length; i++) {
         inputSeriesData.push([getTimeStamp(inputData.Timestamp[i]), inputData[key2][i]]);
       }
-      console.log(inputSeriesData);
       return inputSeriesData;
     };
 
     $scope.getWeatherSeriesData = function getWeatherSeriesData() {
       var inputData = $scope.loadData.input;
-      console.log($scope.loadData);
       var inputSeriesData = [];
       for(var i = 0; i < inputData.Load.length; i++) {
         inputSeriesData.push([getTimeStamp(inputData.Timestamp[i]), inputData.Temprature[i]]);
       }
-      console.log(inputSeriesData);
       return inputSeriesData;
     };
 
-    $scope.loadData = function loadData() {
-      //http to get data with latest params date and number
+    $scope.getData = function getData() {
+      if($scope.chartConfig1) {
+        $scope.chartConfig1.loading = true;
+      }
+      if($scope.chartConfig2) {
+        $scope.chartConfig2.loading = true;
+      }
+      if($scope.chartConfig3) {
+        $scope.chartConfig3.loading = true;
+      }
+      var options =  {date : $scope.dateValue, userCount: $scope.slider.value};
+      DataManager.getData(options).then(function (data) {
+        $scope.loadData = data;
+        perpareChartData();
+      });
     };
 
     $scope.options = {
@@ -343,7 +338,6 @@ angular.module('drControllers')
 
     $(".date").datepicker().
     on("change", function(e) {
-      console.log(e.target.value);
       $scope.dateValue = e.target.value;
     });
 
@@ -359,5 +353,7 @@ angular.module('drControllers')
         }
       }
     };
-  }
-]);
+    $scope.$on('$viewContentLoaded', function () {
+       $scope.getData();
+    });
+  });

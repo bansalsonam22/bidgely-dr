@@ -7,10 +7,6 @@ angular.module('drControllers')
       validateUser();
    },
    validateUser = function () {
-     console.log("validateUser");
-     GetStartTime.getStartTime().then(function (data) {
-       console.log("data", data);
-     });
      if ($scope.user.userName === 'admin' && $scope.user.password === 'admin') {
        $scope.messageSuccess = "Success";
        $scope.isError = false;

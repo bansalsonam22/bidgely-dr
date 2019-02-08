@@ -1,6 +1,9 @@
 .navbar-brand {
   height: auto;
 }
+.container-fluid > .navbar-header {
+  margin-left: 38px;
+}
 .navbar-right {
   li {
     a {
