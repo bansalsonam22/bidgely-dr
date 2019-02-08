@@ -1,5 +1,5 @@
 angular.module('drControllers')
-.controller('loginCtrl', function($scope, $state, $q, GetStartTime) {
+.controller('loginCtrl', function($scope, $state, $q) {
   $scope.user = null;
   $scope.isError = false;
   $scope.isSuccess = false;
