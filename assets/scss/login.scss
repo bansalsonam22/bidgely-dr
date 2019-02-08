@@ -1,0 +1,34 @@
+@import "variables";
+.page-content {
+  .login-page {
+    width: 100%;
+    border-radius: 10px;
+    padding: 15px;
+    .login-wrap {
+      border-radius: 10px;
+      // box-shadow: 2px 2px 2px 2px #ccc;
+      margin: 0 auto;
+      padding: 50px 80px;
+      width: 560px;
+      .login-title {
+        font-size: 25px;
+        text-transform: uppercase;
+        border-bottom: 2px solid $light-gray;
+        margin-bottom: 45px;
+        padding-bottom: 15px;
+        text-align: center;
+      }
+      .form {
+        .form-group {
+          .control-label {
+            font-weight: 500;
+          }
+          .form-control {
+            height: 45px;
+            border-radius: 0px;
+          }
+        }
+      }
+    }
+  }
+}

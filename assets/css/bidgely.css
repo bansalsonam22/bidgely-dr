@@ -1,0 +1,30 @@
+.navbar-brand {
+  height: auto; }
+
+.navbar-right li a {
+  line-height: 40px; }
+
+.page-content {
+  margin-top: 100px; }
+
+.page-content .login-page {
+  width: 100%;
+  border-radius: 10px;
+  padding: 15px; }
+  .page-content .login-page .login-wrap {
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 50px 80px;
+    width: 560px; }
+    .page-content .login-page .login-wrap .login-title {
+      font-size: 25px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #ebebeb;
+      margin-bottom: 45px;
+      padding-bottom: 15px;
+      text-align: center; }
+    .page-content .login-page .login-wrap .form .form-group .control-label {
+      font-weight: 500; }
+    .page-content .login-page .login-wrap .form .form-group .form-control {
+      height: 45px;
+      border-radius: 0px; }
