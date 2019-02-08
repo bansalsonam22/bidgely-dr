@@ -346,7 +346,6 @@ angular.module('drControllers')
     };
 
      console.log("home");
-  }
      $scope.datepickerOptions ={
        format: 'yyyy-mm-dd',
        language: 'en',
