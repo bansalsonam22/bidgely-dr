@@ -6,6 +6,12 @@
 
 .page-content {
   margin-top: 100px; }
+  .page-content .home-page .date {
+    margin-top: 17px; }
+  .page-content .chart-container {
+    margin: 50px 0;
+    padding: 25px 0;
+    border-bottom: 1px solid #ccc; }
 
 .page-content .login-page {
   width: 100%;

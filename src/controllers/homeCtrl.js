@@ -27,18 +27,6 @@ angular.module('drControllers')
           },
           plotOptions: {
             area: {
-                fillColor: {
-                    linearGradient: {
-                        x1: 0,
-                        y1: 0,
-                        x2: 0,
-                        y2: 1
-                    },
-                    stops: [
-                        [0, Highcharts.getOptions().colors[0]],
-                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                    ]
-                },
                 marker: {
                     radius: 2
                 },
@@ -55,36 +43,44 @@ angular.module('drControllers')
         yAxis: [
           {
              title: {
-              text: ''
+              text: 'Load'
              },
              gridLineWidth: 0,
              minorGridLineWidth: 0,
              lineWidth:0,
              startOnTick: false,
-             labels: false,
+             labels: {enabled:true},
              opposite:true,
         },
         {
           min: 0,
           title: {
-            text: ''
+            text: 'Temprature'
           },
           gridLineWidth: 0,
           minorGridLineWidth: 0,
-          labels :false
+          labels :{enabled:true}
         }
       ],
         series:[{
-                  type: 'area',
-                  name: 'Input Graph',
+                  type: 'line',
+                  name: 'Load',
                   yAxis: 0,
-                  data: $scope.getChartSeries("input", "Load")
+                  data: $scope.getChartSeries("input", "Load"),
+                  tooltip: {
+                      valueDecimals: 2,
+                      valueSuffix: ' mWh'
+                  }
               },
               {
                   type: 'line',
                   name: 'Weather',
                   yAxis: 1,
-                  data: $scope.getWeatherSeriesData()
+                  data: $scope.getWeatherSeriesData(),
+                  tooltip: {
+                      valueDecimals: 2,
+                      valueSuffix: ' °F'
+                  }
               }
             ],
         title: {
@@ -117,18 +113,6 @@ angular.module('drControllers')
           },
           plotOptions: {
             area: {
-                fillColor: {
-                    linearGradient: {
-                        x1: 0,
-                        y1: 0,
-                        x2: 0,
-                        y2: 1
-                    },
-                    stops: [
-                        [0, Highcharts.getOptions().colors[0]],
-                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                    ]
-                },
                 marker: {
                     radius: 2
                 },
@@ -145,38 +129,38 @@ angular.module('drControllers')
         yAxis: [
           {
              title: {
-              text: ''
+              text: 'Load in mWh'
              },
              gridLineWidth: 0,
              minorGridLineWidth: 0,
              lineWidth:0,
              startOnTick: false,
-             labels: false,
-             opposite:true,
-        },
-        {
-          min: 0,
-          title: {
-            text: ''
-          },
-          gridLineWidth: 0,
-          minorGridLineWidth: 0,
-          labels :false
+             labels: {enabled:true},
+             opposite: true
         }
       ],
         series:[{
-                  type: 'column',
+                  type: 'line',
                   name: 'Actual Load',
                   yAxis: 0,
-                  lineColor: '#00FF00',
-                  data: $scope.getChartSeries("output", "Actual_Load")
+                  lineColor: '#1543ea',
+                  lineWidth:5,
+                  data: $scope.getChartSeries("output", "Actual_Load"),
+                  tooltip: {
+                      valueDecimals: 2,
+                      valueSuffix: ' mWh'
+                  }
               },
               {
-                  type: 'column',
+                  type: 'line',
                   name: 'Predicted Load',
                   yAxis: 0,
-                  lineColor: '#FF0000',
-                  data: $scope.getChartSeries("output", "Predicted_Load")
+                  lineColor: '#FF4571',
+                  data: $scope.getChartSeries("output", "Predicted_Load"),
+                  tooltip: {
+                      valueDecimals: 2,
+                      valueSuffix: ' mWh'
+                  }
               },
               {
                   type: 'arearange',
@@ -189,9 +173,13 @@ angular.module('drControllers')
                   fillColor: {
                       linearGradient: [0, 0, 0, 300],
                       stops: [
-                          [0, "#ccc"],
-                          [1, Highcharts.Color("#ccc").setOpacity(0).get('rgba')]
+                          [0, "#FF4571"],
+                          [1, Highcharts.Color("#FF4571").setOpacity(0).get('rgba')]
                       ]
+                  },
+                  tooltip: {
+                      valueDecimals: 2,
+                      valueSuffix: ' mWh'
                   }
               }
             ],
@@ -225,18 +213,6 @@ angular.module('drControllers')
           },
           plotOptions: {
             area: {
-                fillColor: {
-                    linearGradient: {
-                        x1: 0,
-                        y1: 0,
-                        x2: 0,
-                        y2: 1
-                    },
-                    stops: [
-                        [0, Highcharts.getOptions().colors[0]],
-                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                    ]
-                },
                 marker: {
                     radius: 2
                 },
@@ -259,7 +235,7 @@ angular.module('drControllers')
              minorGridLineWidth: 0,
              lineWidth:0,
              startOnTick: false,
-             labels: false,
+             labels: {enabled:true},
              opposite:true,
         },
         {
@@ -269,20 +245,30 @@ angular.module('drControllers')
           },
           gridLineWidth: 0,
           minorGridLineWidth: 0,
-          labels :false
+          labels :{enabled:true}
         }
       ],
         series:[{
-                  type: 'area',
+                  type: 'line',
                   name: 'Actual Output Error',
                   yAxis: 0,
-                  data: $scope.getChartSeries("output_error", "Actual_Error")
+                  color: "#1543ea",
+                  data: $scope.getChartSeries("output_error", "Actual_Error"),
+                  tooltip: {
+                      valueDecimals: 2,
+                      valueSuffix: " %"
+                  }
               },
               {
-                  type: 'area',
+                  type: 'line',
                   name: 'Predicted Output Error',
                   yAxis: 0,
-                  data: $scope.getChartSeries("output_error", "Predicted_Error")
+                  color: "#FF4571",
+                  data: $scope.getChartSeries("output_error", "Predicted_Error"),
+                  tooltip: {
+                      valueDecimals: 2,
+                      valueSuffix: " %"
+                  }
               }
             ],
         title: {
@@ -318,7 +304,7 @@ angular.module('drControllers')
       console.log($scope.loadData);
       var inputSeriesData = [];
       for(var i = 0; i < inputData["Predicted_confidence_lower"].length; i++) {
-        inputSeriesData.push([getTimeStamp(inputData.Timestamp[i]), Math.round(inputData["Predicted_confidence_lower"][i]), Math.round(inputData["Predicted_confidence_upper"][i])]);
+        inputSeriesData.push([getTimeStamp(inputData.Timestamp[i]), inputData["Predicted_confidence_lower"][i], inputData["Predicted_confidence_upper"][i]]);
       }
       console.log(inputSeriesData);
       return inputSeriesData;
@@ -329,7 +315,7 @@ angular.module('drControllers')
       console.log($scope.loadData);
       var inputSeriesData = [];
       for(var i = 0; i < inputData[key2].length; i++) {
-        inputSeriesData.push([getTimeStamp(inputData.Timestamp[i]), Math.round(inputData[key2][i])]);
+        inputSeriesData.push([getTimeStamp(inputData.Timestamp[i]), inputData[key2][i]]);
       }
       console.log(inputSeriesData);
       return inputSeriesData;
