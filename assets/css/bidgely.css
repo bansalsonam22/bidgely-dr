@@ -19,7 +19,7 @@
     .page-content .login-page .login-wrap .login-title {
       font-size: 25px;
       text-transform: uppercase;
-      border-bottom: 2px solid #ebebeb;
+      border-bottom: 2px solid #ccc;
       margin-bottom: 45px;
       padding-bottom: 15px;
       text-align: center; }
@@ -28,3 +28,11 @@
     .page-content .login-page .login-wrap .form .form-group .form-control {
       height: 45px;
       border-radius: 0px; }
+
+.slider .rzslider .rz-bar-wrapper .rz-bar {
+  border-radius: 5px;
+  height: 15px; }
+
+.slider .rz-pointer {
+  border-radius: 5px;
+  top: -11px; }

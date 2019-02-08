@@ -1,4 +1,6 @@
 var bidgelyDRApp = angular.module('bidgelyDRApp', [
   'ui.router',
-  'drControllers'
+  'rzModule',
+  'drControllers',
+  'ng-bootstrap-datepicker'
 ]);
